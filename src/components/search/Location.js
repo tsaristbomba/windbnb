@@ -7,7 +7,9 @@ import { makeStyles } from "@material-ui/styles";
 const useStyles = makeStyles(() => ({
   activeBtn: {
     background: "tomato",
-    color: "White",
+  },
+  color: {
+    color: "white",
   },
 }));
 
@@ -18,7 +20,7 @@ const Location = ({
   setChildCount,
   setAdultCount,
 }) => {
-  const { activeBtn } = useStyles();
+  const { activeBtn, color } = useStyles();
 
   return (
     <List>
@@ -37,7 +39,7 @@ const Location = ({
             >
               <ListItemIcon>
                 <RoomIcon />
-                <span>{data}</span>
+                <span className={city === data ? color : ""}>{data}</span>
               </ListItemIcon>
             </ListItem>
           );

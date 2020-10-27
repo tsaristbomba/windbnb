@@ -18,9 +18,13 @@ const Home = () => {
     getLocal();
   }, []);
 
+  /* eslint-disable */
+
   useEffect(() => {
     getAdultLimit();
   }, []);
+
+  /* eslint-enable */
 
   function toggleDrawer() {
     setMenu(!topMenu);

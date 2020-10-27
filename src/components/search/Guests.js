@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BottomNavigation, Box, Button, IconButton } from "@material-ui/core";
+import { Box, IconButton } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import AddBoxIcon from "@material-ui/icons/AddBox";
 import IndeterminateCheckBoxIcon from "@material-ui/icons/IndeterminateCheckBox";

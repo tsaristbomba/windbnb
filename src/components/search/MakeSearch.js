@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import { Grid, Box, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
@@ -27,7 +27,7 @@ const useStyles = makeStyles(() => ({
   rightOpt: {
     borderRadius: "0 15px  15px 0",
   },
-  querry: {
+  query: {
     margin: "15px 0",
     border: "1px solid #333",
     padding: "10px",
@@ -35,7 +35,7 @@ const useStyles = makeStyles(() => ({
     boxShadow: "rgba(0, 0, 0, 0.1) 0px 4px 12px",
     fontSize: "14px",
   },
-  querry2: {
+  query2: {
     margin: "15px 0",
     border: "1px solid #ededed",
     padding: "10px",
@@ -53,8 +53,6 @@ const useStyles = makeStyles(() => ({
 const Search = ({
   locations,
   getAdultLimit,
-  index,
-  getIndex,
   toggleDrawer,
   setAdultCount,
   setChildCount,
@@ -68,8 +66,8 @@ const Search = ({
   const {
     searchBtn,
     wrapper,
-    querry,
-    querry2,
+    query,
+    query2,
     leftOpt,
     rightOpt,
     height,
@@ -85,7 +83,7 @@ const Search = ({
         <Grid item xs={12} sm={3}>
           <Box>
             <Box
-              className={`${sideMenu ? querry : querry2} ${
+              className={`${sideMenu ? query : query2} ${
                 matches ? phone : leftOpt
               }`}
               onClick={() => setSide(true)}
@@ -108,7 +106,7 @@ const Search = ({
         <Grid item xs={12} sm={3}>
           <Box>
             <Box
-              className={` ${!sideMenu ? querry : querry2} ${
+              className={` ${!sideMenu ? query : query2} ${
                 matches ? phone : rightOpt
               }`}
               onClick={() => setSide(false)}

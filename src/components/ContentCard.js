@@ -11,6 +11,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import StarIcon from "@material-ui/icons/Star";
+import { TitleRounded } from "@material-ui/icons";
 
 const useStyles = makeStyles(() => ({
   superHost: {
@@ -19,6 +20,7 @@ const useStyles = makeStyles(() => ({
     fontWeight: "bold",
     padding: "2px 5px",
     marginRight: "5px",
+    fontSize: "12px",
   },
   card: {
     borderRadius: "20px",
@@ -30,14 +32,26 @@ const useStyles = makeStyles(() => ({
   },
   iconSize: {
     fontSize: "14px",
-    marginLeft: "3px",
+  },
+  star: {
+    // marginLeft: "auto",
+    textAlign: "end",
+    color: "tomato",
+  },
+  cardContent: {
+    width: "90%",
+  },
+  title: {
+    width: "100%",
+    display: "inline-flex",
+    justifyContent: "space-between",
   },
 }));
 
 const ContentCard = ({ search }) => {
   console.log(search);
 
-  const { superHost, card, iconSize } = useStyles();
+  const { superHost, card, iconSize, cardContent, star, title } = useStyles();
 
   return (
     <>
@@ -54,13 +68,15 @@ const ContentCard = ({ search }) => {
                     image={data.image}
                     title={data.type}
                   />
-                  <CardContent>
-                    <Typography gutterBottom component="p">
-                      {data.super && (
-                        <small className={superHost}>SUPER HOST</small>
-                      )}
-                      <small>{data.type}</small>
+                  <CardContent className={cardContent}>
+                    <Typography className={title} gutterBottom component="p">
                       <small>
+                        {data.super && (
+                          <small className={superHost}>SUPER HOST</small>
+                        )}
+                        {data.type}
+                      </small>
+                      <small className={star}>
                         <StarIcon className={iconSize} />
                         {data.rating}
                       </small>

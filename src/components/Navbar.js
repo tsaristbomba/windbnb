@@ -10,8 +10,7 @@ import {
   Grid,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
-import { Search } from "@material-ui/icons";
-import ChangeHistoryRoundedIcon from "@material-ui/icons/ChangeHistoryRounded";
+import { Search, ChangeHistoryRounded } from "@material-ui/icons";
 
 import MakeSearch from "./search/MakeSearch";
 
@@ -23,7 +22,6 @@ const useStyles = makeStyles(() => ({
   logo: {
     color: "tomato",
     fontWeight: "bold",
-    fontSize: "18px",
   },
   rightPosition: {
     marginLeft: "auto",
@@ -65,8 +63,8 @@ const Navbar = ({
         <Box component="nav">
           <AppBar className={navbar} position="static">
             <Toolbar>
-              <ChangeHistoryRoundedIcon fontSize="small" />
-              <Typography className={logo} component="strong">
+              <Typography className={logo} variant="inherit">
+                <ChangeHistoryRounded style={{ fontSize: "14px" }} />
                 windbnb
               </Typography>
               <Box className={rightPosition} component="div">
@@ -100,7 +98,6 @@ const Navbar = ({
             adultCount={adultCount}
             setCity={setCity}
             city={city}
-            toggleDrawer={toggleDrawer}
             setSide={setSide}
             sideMenu={sideMenu}
           />
