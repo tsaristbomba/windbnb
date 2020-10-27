@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import data from "../data/data.json";
 import SearchResults from "./SearchResults";
-import zIndex from "@material-ui/core/styles/zIndex";
 
 const Home = () => {
   const [locations, setLocal] = useState(null);
@@ -13,6 +12,7 @@ const Home = () => {
   const [childCount, setChildCount] = useState(0);
   const [city, setCity] = useState("Brisbane, Australia");
   const [topMenu, setMenu] = useState(false);
+  const [sideMenu, setSide] = useState(false);
 
   useEffect(() => {
     getLocal();
@@ -21,10 +21,6 @@ const Home = () => {
   useEffect(() => {
     getAdultLimit();
   }, []);
-
-  //   useEffect(() => {
-  //     getIndex("Brisbane, Australia");
-  //   }, [locations]);
 
   function toggleDrawer() {
     setMenu(!topMenu);
@@ -51,8 +47,6 @@ const Home = () => {
     setSearch(x);
   }
 
-  //   console.log(index);
-  //   console.log(search);
   console.log(search);
 
   return (
@@ -70,8 +64,10 @@ const Home = () => {
         city={city}
         toggleDrawer={toggleDrawer}
         topMenu={topMenu}
+        setSide={setSide}
+        sideMenu={sideMenu}
       />
-      <SearchResults search={search} />
+      <SearchResults search={search} city={city} />
     </div>
   );
 };

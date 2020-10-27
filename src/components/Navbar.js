@@ -7,6 +7,7 @@ import {
   Typography,
   IconButton,
   Drawer,
+  Grid,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import { Search, HomeWork } from "@material-ui/icons";
@@ -20,6 +21,7 @@ const useStyles = makeStyles(() => ({
   },
   logo: {
     color: "tomato",
+    fontWeight: "bold",
   },
   rightPosition: {
     marginLeft: "auto",
@@ -49,54 +51,60 @@ const Navbar = ({
   city,
   toggleDrawer,
   topMenu,
+  setSide,
+  sideMenu,
 }) => {
   const { navbar, logo, rightPosition, cityBtn, searchBtn } = useStyles();
 
-  console.log(city);
-
   return (
-    <>
-      <Box component="nav">
-        <AppBar className={navbar} position="static">
-          <Toolbar>
-            <Typography className={logo} variant="h5">
-              <HomeWork /> airclone
-            </Typography>
-            <Box className={rightPosition} component="div">
-              <Typography className={cityBtn} variant="inherit">
-                {locations !== null && city}
+    <Grid container>
+      <Grid item xs={false} sm={1} lg={2}></Grid>
+      <Grid item xs={12} sm={10} lg={8}>
+        <Box component="nav">
+          <AppBar className={navbar} position="static">
+            <Toolbar>
+              <Typography className={logo} variant="h5">
+                <HomeWork /> airclone
               </Typography>
-              <IconButton
-                className={searchBtn}
-                onClick={() => {
-                  toggleDrawer();
-                  setAdultCount(1);
-                  setChildCount(0);
-                }}
-              >
-                <Search className={logo} />
-              </IconButton>
-            </Box>
-          </Toolbar>
-        </AppBar>
-      </Box>
-      <Drawer anchor="top" open={topMenu} onClose={toggleDrawer}>
-        <MakeSearch
-          getAdultLimit={getAdultLimit}
-          locations={locations}
-          index={index}
-          getIndex={getIndex}
-          toggleDrawer={toggleDrawer}
-          setAdultCount={setAdultCount}
-          setChildCount={setChildCount}
-          childCount={childCount}
-          adultCount={adultCount}
-          setCity={setCity}
-          city={city}
-          toggleDrawer={toggleDrawer}
-        />
-      </Drawer>
-    </>
+              <Box className={rightPosition} component="div">
+                <Typography className={cityBtn} variant="inherit">
+                  {locations !== null && city}
+                </Typography>
+                <IconButton
+                  className={searchBtn}
+                  onClick={() => {
+                    toggleDrawer();
+                    // setAdultCount(1);
+                    // setChildCount(0);
+                  }}
+                >
+                  <Search className={logo} />
+                </IconButton>
+              </Box>
+            </Toolbar>
+          </AppBar>
+        </Box>
+        <Drawer anchor="top" open={topMenu} onClose={toggleDrawer}>
+          <MakeSearch
+            getAdultLimit={getAdultLimit}
+            locations={locations}
+            index={index}
+            getIndex={getIndex}
+            toggleDrawer={toggleDrawer}
+            setAdultCount={setAdultCount}
+            setChildCount={setChildCount}
+            childCount={childCount}
+            adultCount={adultCount}
+            setCity={setCity}
+            city={city}
+            toggleDrawer={toggleDrawer}
+            setSide={setSide}
+            sideMenu={sideMenu}
+          />
+        </Drawer>
+      </Grid>
+      <Grid item xs={false} sm={1} lg={2}></Grid>
+    </Grid>
   );
 };
 

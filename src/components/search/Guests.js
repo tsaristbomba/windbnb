@@ -30,7 +30,6 @@ const useStyles = makeStyles(() => ({
 const Guests = ({ setAdultCount, setChildCount, adultCount, childCount }) => {
   const { btnLeft, btnRight, wrapper, divs, marginLeft } = useStyles();
 
-  console.log();
   return (
     <Box className={marginLeft} component="div">
       <Box className={divs} component="div">

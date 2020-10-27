@@ -11,7 +11,13 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const Location = ({ locations, setCity, city }) => {
+const Location = ({
+  locations,
+  setCity,
+  city,
+  setChildCount,
+  setAdultCount,
+}) => {
   const { activeBtn } = useStyles();
 
   return (
@@ -23,7 +29,11 @@ const Location = ({ locations, setCity, city }) => {
               className={city === data ? activeBtn : ""}
               button
               key={k}
-              onClick={() => setCity(data)}
+              onClick={() => {
+                setCity(data);
+                setAdultCount(1);
+                setChildCount(0);
+              }}
             >
               <ListItemIcon>
                 <RoomIcon />
